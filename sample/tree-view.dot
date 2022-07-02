@@ -1,0 +1,26 @@
+digraph tree {
+node [shape = Mrecord, penwidth = 2];
+"h"[label="{<f0>h:1|{<f1>|<f2>}}"color=black];
+"f"[label="{<f0>f:1|{<f1>|<f2>}}"color=black];
+"d"[label="{<f0>d:1|{<f1>|<f2>}}"color=black];
+"a"[label="{<f0>a:1|{<f1>|<f2>}}"color=black];
+"b"[label="{<f0>b:1|{<f1>|<f2>}}"color=black];
+"c"[label="{<f0>c:1|{<f1>|<f2>}}"color=black];
+"b":f2 -> "c":f0;
+"a":f2 -> "b":f0;
+"d":f1 -> "a":f0;
+"e"[label="{<f0>e:1|{<f1>|<f2>}}"color=black];
+"d":f2 -> "e":f0;
+"f":f1 -> "d":f0;
+"g"[label="{<f0>g:1|{<f1>|<f2>}}"color=black];
+"f":f2 -> "g":f0;
+"h":f1 -> "f":f0;
+"l"[label="{<f0>l:1|{<f1>|<f2>}}"color=black];
+"i"[label="{<f0>i:1|{<f1>|<f2>}}"color=black];
+"j"[label="{<f0>j:1|{<f1>|<f2>}}"color=black];
+"k"[label="{<f0>k:1|{<f1>|<f2>}}"color=black];
+"j":f2 -> "k":f0;
+"i":f2 -> "j":f0;
+"l":f1 -> "i":f0;
+"h":f2 -> "l":f0;
+}

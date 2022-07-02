@@ -1,0 +1,115 @@
+echo Standard BST tree checking
+./asgn/asgn2 < bigfile >| testoneours
+./sample/sample-asgn2 < bigfile >| testonesamp
+cmp testoneours testonesamp
+echo
+
+echo Blankfile testing BST
+./asgn/asgn2 < blankfile >| testtwoours
+./sample/sample-asgn2 < blankfile >| testtwosamp
+cmp testtwoours testtwosamp
+echo
+
+echo Dictionary testing BST
+./asgn/asgn2 < dictionary -c document >| testthreeours
+./sample/sample-asgn2 < dictionary -c document >| testthreesamp
+cmp testthreeours testthreesamp
+echo
+
+echo RBT Testing
+./asgn/asgn2 -r < bigfile >| testfourours
+./sample/sample-asgn2 -r < bigfile >| testfoursamp
+cmp testfourours testfoursamp
+echo
+
+echo Blankfile testing RBT
+./asgn/asgn2 -r < blankfile >| testfiveours
+./sample/sample-asgn2 -r < blankfile >| testfivesamp
+cmp testfiveours testfivesamp
+echo
+
+echo Dictionary testing RBT
+./asgn/asgn2 < dictionary -c document -r >| testsixours
+./sample/sample-asgn2 < dictionary -c document -r >| testsixsamp
+cmp testsixours testsixsamp
+echo
+
+echo Depth testing BST
+./asgn/asgn2 -d < bigfile >| testsevenours
+./sample/sample-asgn2 -d < bigfile >| testsevensamp
+cmp testsevenours testsevensamp
+echo
+
+echo Depth testing RBT
+./asgn/asgn2 -d -r < bigfile >| testeightours
+./sample/sample-asgn2 -d -r < bigfile >| testeightsamp
+cmp testeightours testeightsamp
+echo
+
+echo Dotoutput testing BST
+./asgn/asgn2 -o -f testnineours.dot< bigfile >| testnineours
+./sample/sample-asgn2 -o -f testninesamp.dot < bigfile >| testninesamp
+cmp testnineours testninesamp
+cmp testnineours.dot testninesamp.dot
+echo
+
+echo Dotouput testing RBT
+./asgn/asgn2 -o -r -f testtenours.dot < bigfile >| testtenours
+./sample/sample-asgn2 -o -f testtensamp.dot -r < bigfile >| testtensamp
+cmp testtenours testtensamp
+cmp testtenours.dot testtensamp.dot
+echo
+
+echo Valgrind BST
+valgrind -q ./asgn/asgn2 < bigfile > testfile11
+echo
+
+echo Valgrind RBT
+valgrind -q ./asgn/asgn2 -r < bigfile > testfile12
+echo
+
+echo Valgrind Depth + RBT
+valgrind -q ./asgn/asgn2 -r -d < bigfile > testfile13
+echo
+
+echo Valgrind Dot + RBT
+valgrind -q ./asgn/asgn2 -r -o < bigfile > testfile14
+echo
+
+echo Valgrind Dict + RBT
+valgrind -q ./asgn/asgn2 -r < dictionary -c document >| testfile14
+./sample/sample-asgn2 -r < dictionary -c document >| testfile14samp
+cmp testfile14 testfile14samp
+echo
+
+echo Cleaning up
+rm testoneours
+rm testonesamp
+rm testtwoours
+rm testtwosamp
+rm testthreeours
+rm testthreesamp
+rm testfourours
+rm testfoursamp
+rm testfiveours
+rm testfivesamp
+rm testsixours
+rm testsixsamp
+rm testsevenours
+rm testsevensamp
+rm testeightours
+rm testeightsamp
+rm testnineours
+rm testnineours.dot
+rm testninesamp.dot
+rm testninesamp
+rm testtenours
+rm testtensamp
+rm testtenours.dot
+rm testtensamp.dot
+rm testfile11
+rm testfile12
+rm testfile13
+rm testfile14
+rm testfile14samp
+echo Clean up finished
